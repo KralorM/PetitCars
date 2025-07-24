@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class WheelControl : MonoBehaviour
@@ -28,6 +29,7 @@ public class WheelControl : MonoBehaviour
         // use them to set the wheel model's position and rotation
         WheelCollider.GetWorldPose(out position, out rotation);
         wheelModel.transform.position = position;
-        wheelModel.transform.rotation = rotation;
+        //wheelModel.transform.rotation = rotation;
+        wheelModel.transform.rotation = rotation * quaternion.Euler(0, -90, 0);
     }
 }
